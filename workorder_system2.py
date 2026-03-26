@@ -379,7 +379,7 @@ elif page == "📋  Demand List":
         checkboxes = {}
         for idx, row in filtered_reset.iterrows():
             cols = st.columns([0.4, 1.2, 1.1, 1.2, 1.3, 1.3, 1.3, 1.3, 1.5, 1.0])
-            checkboxes[row["id"]] = cols[0].checkbox("", key=f"chk_{row['id']}")
+            checkboxes[row["id"]] = cols[0].checkbox(     f"Select work order {row['id']}",     key=f"chk_{row['id']}",     label_visibility="collapsed" )
             cols[1].markdown(f"<span style='font-family:IBM Plex Mono;font-size:12px;color:#58a6ff'>{row['wo_number']}</span>", unsafe_allow_html=True)
             cols[2].markdown(f"<span style='font-size:12px;color:#8b949e'>{row['creation_date']}</span>", unsafe_allow_html=True)
             cols[3].markdown(f"<span style='font-size:12px'>{row['brigade']}</span>", unsafe_allow_html=True)
@@ -509,7 +509,7 @@ elif page == "📄  RFQ Management":
                 add_ids = []
                 for _, row in available.head(30).iterrows():
                     c1,c2,c3,c4,c5,c6 = st.columns([0.4,1.2,1.2,1.4,1.6,0.8])
-                    cb = c1.checkbox("", key=f"add_{row['id']}")
+                    cb = c1.checkbox(     f"Add work order {row['id']}",     key=f"add_{row['id']}",     label_visibility="collapsed" )
                     if cb: add_ids.append(row["id"])
                     c2.markdown(f"<span style='font-family:IBM Plex Mono;font-size:11px;color:#58a6ff'>{row['wo_number']}</span>", unsafe_allow_html=True)
                     c3.markdown(f"<span style='font-family:IBM Plex Mono;font-size:11px'>{row['mng_part_number']}</span>", unsafe_allow_html=True)
